@@ -3,7 +3,7 @@ import Link from "next/link";
 const Header = () => {
   return (
     <header className="bg-blue-500 p-4">
-      <nav className="flex justify-between items-center max-w-4xl mx-auto">
+      <nav className="flex justify-between items-center max-w-5xl mx-auto">
         <Link href="/" className="text-white text-2xl font-bold">
           Beyond Words
         </Link>
