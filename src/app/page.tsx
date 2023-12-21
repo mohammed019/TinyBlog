@@ -1,7 +1,9 @@
-import Image from "next/image";
+import FormNewPost from "@/components/FormNewPost";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
+    <main className="max-w-4xl mx-auto my-5">
+      <FormNewPost />
+    </main>
   );
 }
