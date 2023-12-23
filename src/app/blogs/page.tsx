@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { blogs } from "../data/posts";
+import { blogs } from "../../data/posts";
 import "./style.css";
 
 const Blogs = () => {

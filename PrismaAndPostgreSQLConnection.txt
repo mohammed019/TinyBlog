@@ -1,0 +1,27 @@
+How to install Postgresql in arch linux:
+
+1. Installing postgreSQL:
+    sudo pacman -S postgresql
+
+2. check if postgreSQL available:
+    postgresql --version
+
+3. check postgreSQL status:
+    systemctl status postgresql
+
+4. start postgreSQL:
+    systemctl start postgresql
+
+5. Open a terminal and connect to PostgreSQL:
+    sudo -u postgres psql
+
+6. Create the database named 'anyName':
+    CREATE DATABASE myblogpost;
+
+7. now you can connect with postgreSQL with prisma with this URL:
+    postgresql://postgres:randompassword@localhost:5432/anyName?schema=public
+
+
+npx prisma db push
+npx prisma generatem
+npx prisma studio
