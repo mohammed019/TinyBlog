@@ -13,13 +13,15 @@ export async function POST(req: Request) {
     }
     const { title, content } = await req.json();
 
-    return NextResponse.json({ user, title, content });
     const newPost = await prisma?.post.create({
       data: {
-        title: title,
-        content: content,
+        title,
+        content,
+        authorEmail: user.email,
       },
     });
+
+    return NextResponse.json({ newPost }, { status: 200 });
   } catch (error) {
     return NextResponse.json(
       { message: "Something went wrong!" },

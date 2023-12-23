@@ -58,21 +58,21 @@ model VerificationToken {
 }
 
 model Post {
-  id        String    @id @default(cuid())
-  title     String
-  content   String
-  User      User?     @relation(fields: [userId], references: [id])
-  userId    String?
-  createdAt DateTime  @default(now())
-  comments  Comment[]
+  id          String    @id @default(cuid())
+  title       String
+  content     String
+  author      User?     @relation(fields: [authorEmail], references: [email])
+  authorEmail String?
+  createdAt   DateTime  @default(now())
+  comments    Comment[]
 }
 
 model Comment {
-  id        String   @id @default(cuid())
-  text      String
-  User      User?    @relation(fields: [userId], references: [id])
-  userId    String?
-  Post      Post?    @relation(fields: [postId], references: [id])
-  postId    String?
-  createdAt DateTime @default(now())
+  id          String   @id @default(cuid())
+  text        String
+  auhtor      User?    @relation(fields: [authorEmail], references: [email])
+  authorEmail String?
+  Post        Post?    @relation(fields: [postId], references: [id])
+  postId      String?
+  createdAt   DateTime @default(now())
 }

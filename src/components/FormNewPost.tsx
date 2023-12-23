@@ -2,11 +2,13 @@
 import type { FormData } from "@/types/blogs";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 import ReactTextareaAutosize from "react-textarea-autosize";
 const inputClass = `w-full py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus-ring focus:border-blue-300`;
 
 const FormNewPost = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
     title: "",
     content: "",
@@ -30,6 +32,9 @@ const FormNewPost = () => {
 
     try {
       const response = await axios.post("api/posts", formData);
+      if (response.status === 200) {
+        router.push(`/blogs/${response.data.newPost.id}`);
+      }
     } catch (error) {
       console.log(error);
     }

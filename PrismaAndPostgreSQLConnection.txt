@@ -23,5 +23,5 @@ How to install Postgresql in arch linux:
 
 
 npx prisma db push
-npx prisma generatem
+npx prisma generate
 npx prisma studio
