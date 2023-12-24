@@ -1,19 +1,37 @@
 "use client";
+import axios from "axios";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
 
-type ICommentProps = {
+type IFormCommentProps = {
   postId: string;
 };
 
-const FormComment: React.FC<ICommentProps> = ({ postId }) => {
+const FormComment: React.FC<IFormCommentProps> = ({ postId }) => {
+  const router = useRouter();
   const [comment, setComment] = useState<string>("");
+
   return (
     <div>
       <div className="mt-2 ">
         <form
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
-            console.log(comment);
+            if (comment.trim() !== "") {
+              try {
+                const newComment = await axios.post("/api/comments", {
+                  postId,
+                  text: comment,
+                });
+
+                if (newComment.status === 200) {
+                  router.refresh();
+                }
+              } catch (error) {
+                console.log(error);
+              }
+            }
           }}
         >
           <label
