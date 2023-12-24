@@ -1,7 +1,11 @@
 "use client";
 import { ChangeEvent, useState } from "react";
 
-const FormComment = () => {
+type ICommentProps = {
+  postId: string;
+};
+
+const FormComment: React.FC<ICommentProps> = ({ postId }) => {
   const [comment, setComment] = useState<string>("");
   return (
     <div>

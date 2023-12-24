@@ -26,8 +26,8 @@ const BlogDetail: React.FC<IBlogDetailPage> = async ({ params }) => {
       </p>
       <div className="mt-4">{post?.content}</div>
 
-      <Comments />
-      <FormComment />
+      <Comments postId={params.id} />
+      <FormComment postId={params.id} />
     </div>
   );
 };
