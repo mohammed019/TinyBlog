@@ -1,6 +1,6 @@
-# Beyond Words
+# Tiny Blog
 
-Beyond Words is a dynamic and modern blog app built with Next.js, offering a seamless blend of creativity and technology. Dive into the world of expressive content creation using Google login for authentication, NextAuth for streamlined authentication processes, and PostgreSQL for robust user data storage. Harness the power of Prisma for efficient and flexible database querying.
+##### Use TypeScript, PostgreSQL, and Prisma to create a practice blog. Not a live URL; designed for learning. learn about TypeScript programming and database interactions."
 
 ## Features
 
