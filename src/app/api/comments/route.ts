@@ -5,6 +5,7 @@ export async function POST(req: Request) {
   const user = await getCurrentUser();
 
   try {
+    // if user is not Authenticated
     if (!user?.email) {
       return NextResponse.json(
         { message: "Not Authenticated!" },
@@ -13,6 +14,7 @@ export async function POST(req: Request) {
     }
 
     const { postId, text } = await req.json();
+    // create comment
     const newPost = await prisma?.comment.create({
       data: {
         postId,
@@ -20,6 +22,7 @@ export async function POST(req: Request) {
         authorEmail: user.email,
       },
     });
+    // send back comment
     return NextResponse.json({ newPost }, { status: 200 });
   } catch (error) {
     return NextResponse.json(

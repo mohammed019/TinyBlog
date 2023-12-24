@@ -1,8 +1,8 @@
 import Link from "next/link";
-// import { blogs } from "../../data/posts";
 import "./style.css";
 
 const Blogs = async () => {
+  // find all posts by desc
   const posts = await prisma?.post.findMany({
     orderBy: {
       createdAt: "desc",

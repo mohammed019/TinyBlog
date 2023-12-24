@@ -7,6 +7,7 @@ interface ICommentsProps {
 }
 
 const Comments: FC<ICommentsProps> = async ({ postId }) => {
+  // show all comments for this id
   const comments = await prisma.comment.findMany({
     where: {
       postId,

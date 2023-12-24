@@ -19,6 +19,7 @@ const FormComment: React.FC<IFormCommentProps> = ({ postId }) => {
         <form
           onSubmit={async (e) => {
             e.preventDefault();
+            // if the input is not empty create the comment
             if (comment.trim() !== "") {
               try {
                 const newComment = await axios.post("/api/comments", {

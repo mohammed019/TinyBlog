@@ -9,6 +9,7 @@ type IBlogDetailPage = {
 };
 
 const BlogDetail: React.FC<IBlogDetailPage> = async ({ params }) => {
+  // get the blog detail for this id
   const post = await prisma?.post.findFirst({
     where: {
       id: params.id,
