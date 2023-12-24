@@ -9,7 +9,7 @@ const Header = async () => {
     <header className="bg-blue-500 p-4">
       <nav className="flex justify-between items-center max-w-5xl mx-auto">
         <Link href="/" className="text-white text-2xl font-bold">
-          Beyond Words
+          TinyBlog
         </Link>
 
         <ul className="flex space-x-4">

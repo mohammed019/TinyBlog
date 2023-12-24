@@ -9,6 +9,7 @@ type IFormCommentProps = {
 };
 
 const FormComment: React.FC<IFormCommentProps> = ({ postId }) => {
+  const { data } = useSession();
   const router = useRouter();
   const [comment, setComment] = useState<string>("");
 
@@ -50,6 +51,7 @@ const FormComment: React.FC<IFormCommentProps> = ({ postId }) => {
             name="comment"
           />
           <button
+            disabled={!data?.user?.email}
             type="submit"
             className="bg-blue-500 hover:bg-blue-600 text-white w-fit font-bold py-2 px-4 rounded-md focus:outline-none focus:ring focus:border-blue-300 mt-2 disabled:bg-gray-400"
           >
